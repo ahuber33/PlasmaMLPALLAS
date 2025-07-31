@@ -56,7 +56,7 @@ G4LogicalVolume *Geometry::GetQuadrupoleVolume(G4String name, G4double dx, G4dou
 
 G4LogicalVolume *Geometry::GetFakeDiagsChamber()
 {
-  // SimGeometry = new PALLAS_CollSimGeometry();
+  // SimGeometry = new PlasmaAccelerationFacilitySimGeometry();
   // CollimatorInternalRadius = SimGeometry->GetCollimatorInternalRadius();
   Material = G4NistManager::Instance()->FindOrBuildMaterial("G4_Al");
 

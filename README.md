@@ -1,10 +1,10 @@
-# PALLAS_CollSim for PALLAS_Coll Experiment [huber@lp2ib.in2p3.fr, huberarnaud@gmail.com]
+# PlasmaAccelerationFacilitySim for PALLAS Experiment [huber@lp2ib.in2p3.fr, huberarnaud@gmail.com, sytov@infn.it]
 
 ## INSTRUCTIONS TO USE THE SIMULATION
 - Download the VMWare [Geant4.11.2.1](https://heberge.lp2ib.in2p3.fr/G4VM/index.html)
 
 ```
-git clone https://github.com/ahuber33/PALLAS_Collimateurs_Simulation
+git clone https://github.com/ahuber33/PlasmaAccelerationFacility_Simulation
 ```
 
 - Go to build Folder and use this command :
@@ -13,20 +13,20 @@ git clone https://github.com/ahuber33/PALLAS_Collimateurs_Simulation
 ```  
 then compile it with make
 
-- The executable PALLAS_CollSim will be add to your bin folder
+- The executable PlasmaAccelerationFacilitySim will be add to your bin folder
 
 - If you want to have a visualization, launch this command : 
 ```
-./PALLAS_CollSim [name of ROOT file ]
+./PlasmaAccelerationFacilitySim [name of ROOT file ]
 ```  
 It will generate x particle according to the vis.mac with QT and you will have a ROOT file with the name you gave located in the Resultats folder.
 
 - If you want to have statistics without the visualization, use this command : 
 ```
-./PALLAS_CollSim [name of ROOT file] [number of events generated] [name of macro] [FileReader ON/OFF] [MultiThreading ON/OFF] [number of threads]
+./PlasmaAccelerationFacilitySim [name of ROOT file] [number of events generated] [name of macro] [MultiThreading ON/OFF] [number of threads]
 
 ```  
-For example, if you want to use the "PALLAS_phasespace_qm(1411)_preCollimateur.txt" file, you need to activate the FileReader [ON]. In this file, there is 106435 lines so 106435 events to generated with some macroparticles associated. According to the number of threads used if MT is ON, the simulation will create a ROOT file for each thread and at the end of the simulation. All ROOT files will be merged together with a name correspoding to the name given in [name of ROOT file]. The temporary ROOT files will be removed after the merge.
+According to the number of threads used if MT is ON, the simulation will create a ROOT file for each thread and at the end of the simulation. All ROOT files will be merged together with a name correspoding to the name given in [name of ROOT file]. The temporary ROOT files will be removed after the merge.
 
 Note that it's not necessary to indicate a [number of threads] if the condition on MT is OFF. In opposite, you need to put a value if MT is ON.
 
@@ -78,7 +78,7 @@ Concerning the macro, personnaly I used the vrml.mac but you can create another 
     - SetQ2Q3Distance define the distance between the 2nd Quadrupole and the 3rd Quadrupole
     - SetQ3Q4Distance define the distance between the 3rd Quadrupole and the 4th Quadrupole
     - SetSourceCollimatorDistance define the distance between the source and the front of the 1st collimator
-    - **IMPORTANT** You can find a **Geometry.cc** file where all the possible LogicalVolume are created and a **PALLAS_CollSimGeometryConstruction.cc** where these functions are call to construct the geometry.
+    - **IMPORTANT** You can find a **Geometry.cc** file where all the possible LogicalVolume are created and a **PlasmaAccelerationFacilitySimGeometryConstruction.cc** where these functions are call to construct the geometry.
 
 - **/display/** manages if some part of the geometry are taken into account or no :
     - SetStatusDisplayCelluleGeometry for the "2 cells part"
@@ -113,7 +113,7 @@ Concerning the macro, personnaly I used the vrml.mac but you can create another 
 /gun/SetParticleName e-
 ```
 - **/gun/** manages the PrimaryGeneratorAction with GunParticle :
-    - SetStatusONNX defines if the simulation will use this model to generate particles or not. If not, you will need to activate the FileReader parameter if you want to generate a bunch of particles similar at what happend in PALLAS configuration. If not, you will have a "normal" generation of particles according to the part wrote in PALLAS_CollSimPrimaryGeneratorAction.cc
+    - SetStatusONNX defines if the simulation will use this model to generate particles or not. 
     - SetParticleName defines the particle 
     
 - If you want to use the ONNX model, you need to specify the inputs parameter needed by the ML model with **/laser/** commands :   
@@ -230,20 +230,10 @@ For more informations about theses parameters and the model, go check this artic
         - parentID : ParentID of the particle
         - energy : Energy of the particle
 
-- Each variables is initialized at the **BeginOfEventAction**
-- You can find all the variable functions on the **PALLAS_ColSimEventAction.hh**
-- Each Trees is filled (sometimes under conditions) at the **EndOfEventAction**
-- If you want to access where the informations are extracted, go to **PALLAS_CollSimSteppingAction.cc**
-- A ROOT file with [name of ROOT file] given at the launch is created and wrote at the **EndOfEventAction** 
+- You can find all the variable functions on the **PlasmaAccelerationFacilitySimEventAction.hh**
+    - Each variables is initialized at the **BeginOfEventAction**
+    - Each Trees is filled (sometimes under conditions) at the **EndOfEventAction**
 
+- If you want to access where the informations are extracted, go to **PlasmaAccelerationFacilitySimSteppingAction.cc**
 
-
-## DRAW SIMULATION RESULTS
-
-- After the simulation, you can obtain some graphic visualization of the results according to the Plot_2VD.cc file (Magnet OFF) or Plot_HV_devie.cc (Magnet ON).
-
-- To run the program, run this command :
-```
-root '[name file].cc("[name of root file]")'
-```
-
+- A ROOT file with [name of ROOT file] given at the launch is created and wrote at the **EndOfRunAction** 

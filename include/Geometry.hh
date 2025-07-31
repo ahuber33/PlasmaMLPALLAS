@@ -20,7 +20,7 @@
 #include "G4UnionSolid.hh"
 #include "G4NistManager.hh"
 #include "G4UnitsTable.hh"
-#include "../PALLAS_CollSimGlobal.hh"
+#include "../PlasmaAccelerationFacilitySimGlobal.hh"
 #include "G4RunManager.hh"
 #include "G4GenericMessenger.hh"
 #include "G4SystemOfUnits.hh"
@@ -30,8 +30,8 @@
 #include "G4GDMLParser.hh"
 //#endif
 
-class PALLAS_CollSimMaterials;
-class PALLAS_CollSimGeometryConstruction;
+class PlasmaAccelerationFacilitySimMaterials;
+class PlasmaAccelerationFacilitySimGeometryConstruction;
 class G4GenericMessenger;
 class Geometry
 
@@ -53,7 +53,7 @@ public:
   
 private:
   Geometry *Geom;
-  PALLAS_CollSimGeometryConstruction *SimGeometry;
+  PlasmaAccelerationFacilitySimGeometryConstruction *SimGeometry;
   G4GenericMessenger* gMessenger;
   G4Material *Material;
   G4LogicalVolume* LogicalVolume;  // Garde la trace de l'allocation

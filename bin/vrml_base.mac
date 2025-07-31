@@ -1,0 +1,77 @@
+#/control/alias NEventsToGenerate 106435 #PALLAS_qm1411_preCollimateur.txt
+
+/control/alias VerticalCollimatorThickness %VCT
+/control/alias HorizontalCollimatorThickness %HCT
+/control/alias CollimatorSpectrometerDistance 50
+/control/alias CollimatorVHDistance %CVHD
+/control/alias YParticleGenerationOffset %YPGO #Sum of precedent values
+
+######################################################
+########## PART FOR MESSENGER INFORMATIONS ###########
+######################################################
+/geometry/SetStatusRoundCollimator false
+/geometry/SetCollimatorThickness 150 mm
+/geometry/SetCollimatorInternalRadius 10 mm
+/geometry/SetCollimatorExternalRadius 100 mm
+/geometry/SetCollimatorDistanceBetweenPlates 0 mm
+
+/geometry/SetVerticalCollimatorMaterial %VM
+/geometry/SetHorizontalCollimatorMaterial %HM
+
+/geometry/SetVerticalCollimatorThickness {VerticalCollimatorThickness} mm
+/geometry/SetHorizontalCollimatorThickness {HorizontalCollimatorThickness} mm
+/geometry/SetCollimatorSpectrometerDistance {CollimatorSpectrometerDistance} mm
+/geometry/SetCollimatorVHDistance {CollimatorVHDistance} mm
+/gun/SetYParticleGenerationOffset {YParticleGenerationOffset} mm
+/geometry/SetOpenVerticalCollimator %OVC mm
+/geometry/SetOpenHorizontalCollimator %OHC mm
+/geometry/SetCollimatorLength 100 mm
+
+
+
+/display/SetStatusDisplayCelluleGeometry false
+/display/SetStatusDisplayLIFGeometry false
+/display/SetStatusDisplaySection1Geometry false
+/display/SetStatusDisplaySection2Geometry false
+/display/SetStatusDisplaySection3Geometry false
+/display/SetStatusDisplaySection4Geometry true
+/display/SetStatusDisplaySection4DumpGeometry false
+/run/reinitializeGeometry
+
+
+/field/SetStatusMapBField false
+/field/SetConstantBField 0.75 tesla #0.4 tesla
+
+/step/SetTrackingStatus true
+
+
+
+
+######################################################
+##### PART TO SIMULATE PARTICLE WITH PARTICLEGUN #####
+######################################################
+/gun/SetStatusGunParticle true
+/gun/SetParticleName e-
+/gun/SetEnergyReference 247 MeV
+
+/gun/SetStatusONNX false
+/laser/SetOffsetLaserFocus 0.0441427 
+/laser/SetNormVecPotential 0.03696395
+/laser/SetFracDopTargetChamber 0.14718525
+/laser/SetPressure 0.92301997
+
+
+######################################################
+### PART TO SIMULATE PARTICLE WITH GPS (no setgun) ###
+######################################################
+/run/initialize
+#/run/printProgress 10000
+
+/gps/number 1
+/gps/particle e-
+
+/gps/pos/type Point
+/gps/pos/centre -0.152 0.0 0.08 mm
+/gps/direction 0.0 1.0 0.0
+
+/gps/energy 250. MeV

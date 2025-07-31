@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XML schemas/gdml.xsd">spi/app/releases/GDML/schema/gdml.xsd">
+  <define>
+    <constant name="HALFPI" value="pi/2."/>
+  <constant name="PI" value="1.*pi"/>
+  <constant name="TWOPI" value="2.*pi"/>
+  <position name="v0" unit="mm" x="15.000036239624023" y="4418.20654296875" z="-257.3929443359375"/>
+  <position name="v1" unit="mm" x="-14.999963760375977" y="4394.72119140625" z="-333.86810302734375"/>
+  <position name="v2" unit="mm" x="-14.999963760375977" y="4394.81689453125" z="-333.8973388671875"/>
+  <position name="v3" unit="mm" x="15.000036239624023" y="4418.11083984375" z="-257.36370849609375"/>
+  <position name="v4" unit="mm" x="-14.999963760375977" y="4418.11083984375" z="-257.36370849609375"/>
+  <position name="v5" unit="mm" x="15.000036239624023" y="4394.81689453125" z="-333.8973388671875"/>
+  <position name="v6" unit="mm" x="15.000036239624023" y="4394.72119140625" z="-333.86810302734375"/>
+  <position name="v7" unit="mm" x="-14.999963760375977" y="4418.20654296875" z="-257.3929443359375"/>
+  <position name="center" x="0" y="0" z="0" unit="mm"/>
+  <rotation name="identity" x="0" y="0" z="0"/>
+  </define>
+<materials/>
+<solids>
+    <box name="WorldBox" x="1000" y="1000" z="1000" lunit="mm"/>
+  <tessellated name="Pallas_Ecbl_BSPEC1_Yag_50_8x80x8mm__Meshed">
+      <triangular vertex1="v0" vertex2="v7" vertex3="v3" type="ABSOLUTE"/>
+    <triangular vertex1="v3" vertex2="v7" vertex3="v4" type="ABSOLUTE"/>
+    <triangular vertex1="v5" vertex2="v0" vertex3="v6" type="ABSOLUTE"/>
+    <triangular vertex1="v6" vertex2="v0" vertex3="v3" type="ABSOLUTE"/>
+    <triangular vertex1="v2" vertex2="v5" vertex3="v1" type="ABSOLUTE"/>
+    <triangular vertex1="v1" vertex2="v5" vertex3="v6" type="ABSOLUTE"/>
+    <triangular vertex1="v7" vertex2="v2" vertex3="v4" type="ABSOLUTE"/>
+    <triangular vertex1="v4" vertex2="v2" vertex3="v1" type="ABSOLUTE"/>
+    <triangular vertex1="v3" vertex2="v4" vertex3="v6" type="ABSOLUTE"/>
+    <triangular vertex1="v6" vertex2="v4" vertex3="v1" type="ABSOLUTE"/>
+    <triangular vertex1="v7" vertex2="v0" vertex3="v5" type="ABSOLUTE"/>
+    <triangular vertex1="v7" vertex2="v5" vertex3="v2" type="ABSOLUTE"/>
+    </tessellated>
+  </solids>
+<structure>
+    <volume name="BSPEC1_YAG">
+         <solidref ref="Pallas_Ecbl_BSPEC1_Yag_50_8x80x8mm__Meshed"/>
+    </volume>
+  </structure>
+<setup name="Default" version="1.0">
+    <world ref="LV_Pallas_Ecbl_BSPEC1_Yag_50_8x80x8mm__Meshed"/>
+  </setup>
+</gdml>

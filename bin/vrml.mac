@@ -1,0 +1,72 @@
+######################################################
+########## PART FOR MESSENGER INFORMATIONS ###########
+######################################################
+/geometry/SetQ1Length 0.1 m
+/geometry/SetQ2Length 0.1 m
+/geometry/SetQ3Length 0.2 m
+/geometry/SetQ4Length 0.1 m
+/geometry/SetSourceQ1Distance 0.173331 m
+/geometry/SetQ1Q2Distance 0.165062 m
+/geometry/SetQ2Q3Distance 0.259041 m
+/geometry/SetQ3Q4Distance 0.86536 m
+/geometry/SetSourceCollimatorDistance 3007.17 mm #3007.17 mm
+
+
+/display/SetStatusDisplayCelluleGeometry false
+/display/SetStatusDisplayLIFGeometry false
+/display/SetStatusDisplaySection1Geometry false
+/display/SetStatusDisplaySection2Geometry false
+/display/SetStatusDisplaySection3Geometry false
+/display/SetStatusDisplayCollimators true
+/display/SetStatusDisplaySection4Geometry true
+/display/SetStatusDisplaySection4DumpGeometry false
+/run/reinitializeGeometry
+
+
+/field/SetStatusMapBField false
+/field/SetConstantDipoleBField 0. tesla #0.4 tesla
+/field/SetQ1Gradient 0.0 #tesla/m
+/field/SetQ2Gradient 0.0
+/field/SetQ3Gradient 0.0
+/field/SetQ4Gradient 0.0
+
+
+/step/SetTrackingStatus true
+
+
+/tracking/verbose 0
+/run/verbose 1
+#/geometry/test/run
+
+
+
+
+
+######################################################
+##### PART TO SIMULATE PARTICLE WITH PARTICLEGUN #####
+######################################################
+/gun/SetStatusGunParticle true
+/gun/SetParticleName e-
+/gun/SetEnergyReference 247 MeV
+
+/gun/SetStatusONNX true
+/laser/SetOffsetLaserFocus 558 # um
+/laser/SetNormVecPotential 1.43
+/laser/SetFracDopTargetChamber 0.0188 # %(/100)
+/laser/SetPressure 58.6 #mbar
+
+
+######################################################
+### PART TO SIMULATE PARTICLE WITH GPS (no setgun) ###
+######################################################
+#/run/initialize
+#/run/printProgress 10000
+
+/gps/number 1
+/gps/particle geantino
+
+/gps/pos/type Point
+/gps/pos/centre -0.152 0.0 0.08 mm
+/gps/direction 0.0 1.0 0.0
+
+/gps/energy 250. MeV

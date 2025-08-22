@@ -20,6 +20,8 @@
  * @copyright PALLAS Project - GEANT4 Collaboration
  */
 
+ #include "PlasmaMLPALLASQuadrupoleUtils.hh"
+
 /**
  * @brief Sets a specific component of a quadrupole vector.
  *

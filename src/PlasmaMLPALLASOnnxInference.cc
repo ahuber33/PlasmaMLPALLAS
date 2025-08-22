@@ -108,17 +108,20 @@ BeamParameters PlasmaMLPALLASOnnxInference::GenerateBeam(G4double fXof, G4double
     params.Q     = outVals[2] * (8.376833e-10 - 6.498496e-17) + 6.498496e-17;
     params.epsb  = outVals[3] * (7.615750e-5 - 2.504754e-9) + 2.504754e-9;
 
+    G4double eps_x = params.epsb;           // Polarization direction
+    G4double eps_z = params.epsb / 2.5;     // Transverse direction
+
     // Twiss parameters (assume alpha=0, beta=1)
     G4double alphax = 0, betax = 1, alphay = 0, betay = 1;
 
     // Sample X transverse position and momentum
-    G4double Ax = std::sqrt(params.epsb * betax) * std::sqrt(-2 * std::log(G4UniformRand()));
+    G4double Ax = std::sqrt(eps_x * betax) * std::sqrt(-2 * std::log(G4UniformRand()));
     G4double psix = CLHEP::twopi * G4UniformRand();
     params.x  = Ax * std::cos(psix);
     params.xp = -params.x * alphax / betax - Ax / std::sqrt(betax) * std::sin(psix);
 
     // Sample Z transverse position and momentum
-    G4double Ay = std::sqrt(params.epsb * betay) * std::sqrt(-2 * std::log(G4UniformRand()));
+    G4double Ay = std::sqrt(eps_z * betay) * std::sqrt(-2 * std::log(G4UniformRand()));
     G4double psiy = CLHEP::twopi * G4UniformRand();
     params.z  = Ay * std::cos(psiy);
     params.zp = -params.z * alphay / betay - Ay / std::sqrt(betay) * std::sin(psiy);

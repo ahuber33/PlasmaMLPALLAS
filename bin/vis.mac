@@ -1,107 +1,92 @@
-/vis/open OGL 600x600-0+0
-/vis/drawVolume
-#/vis/viewer/set/style wireframe
-/vis/viewer/set/viewpointThetaPhi 0 0
-/vis/viewer/set/upVector 1 0 0
-/vis/viewer/set/viewpointVector -0.99 0 0.01
-/vis/viewer/zoom 1.
-/vis/viewer/set/auxiliaryEdge true
-#/vis/set/lineWidth 2
-/vis/viewer/set/hiddenMarker true
-/vis/scene/add/trajectories smooth
-/vis/scene/endOfEventAction accumulate
+# ------------------------- VISUALIZATION -------------------------
+/vis/open OGL 600x600-0+0                                         # Open an OpenGL viewer with a 600x600 pixel window
+/vis/drawVolume                                                   # Draw the full geometry
+#/vis/viewer/set/style wireframe                                  # (optional) Set geometry to wireframe style
+/vis/viewer/set/viewpointThetaPhi 0 0                             # Set the camera viewpoint angles theta=0, phi=0
+/vis/viewer/set/upVector 1 0 0                                    # Set the camera "up" vector
+/vis/viewer/set/viewpointVector -0.99 0 0.01                      # Set the camera pointing vector
+/vis/viewer/zoom 1.                                               # Set initial zoom to 1x
+/vis/viewer/set/auxiliaryEdge true                                # Display auxiliary edges for better visibility
+#/vis/set/lineWidth 2                                             # (optional) Set line width
+/vis/viewer/set/hiddenMarker true                                 # Enable hidden marker display
+/vis/scene/add/trajectories smooth                                # Add smoothed particle trajectories
+/vis/scene/endOfEventAction accumulate                            # Accumulate trajectories from multiple events
 
-# Axes, scale, etc.
-#/vis/scene/add/scale   # Simple scale line
-#/vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
-#/vis/scene/add/eventID # Drawn at end of event
-/vis/scene/add/date    # Date stamp
-/vis/viewer/set/background white
-#/vis/scene/add/logo    # 3D logo
+# ------------------------- AXES / SCALE / INFO -------------------
+#/vis/scene/add/scale                                             # (optional) Add a simple scale line
+#/vis/scene/add/axes                                              # (optional) Add axes: x=red, y=green, z=blue
+#/vis/scene/add/eventID                                           # (optional) Display event ID
+/vis/scene/add/date                                               # Display the date stamp
+/vis/viewer/set/background white                                  # Set background color to white
+#/vis/scene/add/logo                                              # (optional) Add 3D logo
 
-# To superimpose all of the events from a given run:
-/vis/scene/endOfEventAction accumulate
-# /vis/scene/endOfEventAction accumulate 10
-# /vis/scene/endOfEventAction refresh
+# ------------------------- EVENT HANDLING ------------------------
+/vis/scene/endOfEventAction accumulate                            # Superimpose all events
+# /vis/scene/endOfEventAction accumulate 10                       # (optional) Accumulate limited number of events
+# /vis/scene/endOfEventAction refresh                             # (optional) Refresh scene each event
 
-/vis/scene/add/hits
-/tracking/storeTrajectory 1
+/vis/scene/add/hits                                               # Display hits
+/tracking/storeTrajectory 1                                       # Store particle trajectories for visualization
 
-/geometry/test/run
-#/geometry/test/line_test
-/vis/scene/add/trajectories smooth
-#/vis/scene/add/magneticField
-#/vis/scene/add/electricField
+# ------------------------- GEOMETRY TEST -------------------------
+/geometry/test/run                                                # Run test geometry
+#/geometry/test/line_test                                         # (optional) Line test
+/vis/scene/add/trajectories smooth                                # Add smoothed trajectories
+#/vis/scene/add/magneticField                                     # (optional) Display magnetic field
+#/vis/scene/add/electricField                                     # (optional) Display electric field
 
+###################################################################
+################# PART FOR MESSENGER INFORMATION ##################
+###################################################################
+/PlasmaMLPALLAS/geometry/setQ1Length 0.1 m                        # Set Q1 Length
+/PlasmaMLPALLAS/geometry/setQ2Length 0.1 m                        # Set Q2 Length
+/PlasmaMLPALLAS/geometry/setQ3Length 0.2 m                        # Set Q3 Length
+/PlasmaMLPALLAS/geometry/setQ4Length 0.1 m                        # Set Q4 Length
+/PlasmaMLPALLAS/geometry/setSourceQ1Distance 0.173331 m           # Distance from source to Q1 
+/PlasmaMLPALLAS//geometry/setQ1Q2Distance 0.165062 m              # Distance between Q1 & Q2
+/PlasmaMLPALLAS//geometry/setQ2Q3Distance 0.259041 m              # Distance between Q2 & Q3
+/PlasmaMLPALLAS//geometry/setQ3Q4Distance 0.86536 m               # Distance between Q3 & Q4
+/PlasmaMLPALLAS//geometry/setSourceCollimatorsDistance 2884.5 mm  # Distance from source to collimators
 
-######################################################
-########## PART FOR MESSENGER INFORMATIONS ###########
-######################################################
-/geometry/SetQ1Length 0.1 m
-/geometry/SetQ2Length 0.1 m
-/geometry/SetQ3Length 0.2 m
-/geometry/SetQ4Length 0.1 m
-/geometry/SetSourceQ1Distance 0.173331 m
-/geometry/SetQ1Q2Distance 0.165062 m
-/geometry/SetQ2Q3Distance 0.259041 m
-/geometry/SetQ3Q4Distance 0.86536 m
-/geometry/SetSourceCollimatorDistance 2884.5 mm #3007.17 mm
+/PlasmaMLPALLAS/display/setStatusDisplayGeometry 0                # Display full geometry (1) or simplified (0)
+/PlasmaMLPALLAS/display/setStatusDisplayCollimators 1             # Display collimators (1) or not (0)
+/PlasmaMLPALLAS/display/setStatusDisplayQuadrupoles 1             # Display quadrupoles (1) or not (0)
 
+/run/reinitializeGeometry                                         # Apply geometry changes
 
-/display/SetStatusDisplayCelluleGeometry false
-/display/SetStatusDisplayLIFGeometry false
-/display/SetStatusDisplaySection1Geometry true
-/display/SetStatusDisplaySection2Geometry true
-/display/SetStatusDisplaySection3Geometry false
-/display/SetStatusDisplayCollimators true
-/display/SetStatusDisplaySection4Geometry true
-/display/SetStatusDisplaySection4DumpGeometry false
-/run/reinitializeGeometry
+# ------------------------- MAGNETIC FIELDS -----------------------
+/PlasmaMLPALLAS/field/setQ1Gradient -40.777059 tesla/m            # Set constant Q1 gradient field
+/PlasmaMLPALLAS/field/setQ2Gradient 29.517133 tesla/m             # Set constant Q2 gradient field
+/PlasmaMLPALLAS/field/setQ3Gradient -7.928288 tesla/m             # Set constant Q3 gradient field
+/PlasmaMLPALLAS/field/setQ4Gradient 8.503759 tesla/m              # Set constant Q4 gradient field
+/PlasmaMLPALLAS/field/setStatusMapBField 0                        # Disable B-field map for dipole spectrometer
+/PlasmaMLPALLAS/field/setConstantDipoleBField 0.65 tesla          # Set constant dipole field
 
+/PlasmaMLPALLAS/step/SetTrackingStatus true                       # Enable tracking (true) or not (false)
+/PlasmaMLPALLAS/step/SetTrackingStatusCollimators false           # Enable tracking (true) or not (false)
+                                                                  # after collision with collimators
 
-/field/SetQ1Gradient -40.777059   #tesla/meter
-/field/SetQ2Gradient 29.517133    #tesla/meter
-/field/SetQ3Gradient -7.928288    #tesla/meter
-/field/SetQ4Gradient 8.503759     #tesla/meter
-/field/SetStatusMapBField false   #For the Dipole spectrometer
-/field/SetConstantDipoleBField 0.65 tesla #0.4 tesla 0.75
+/tracking/verbose 1                                               # Enable or not detailed tracking output
+/run/verbose 1                                                    # Enable or not verbose run output
 
-/step/SetTrackingStatus true
+###################################################################
+############ PART TO SIMULATE PARTICLE WITH PARTICLEGUN ###########
+###################################################################
+/PlasmaMLPALLAS/gun/setStatusONNX 1                               # Enable ONNX-based particle gun
+/PlasmaMLPALLAS/gun/setParticleName e-                            # Set particle type 
+/PlasmaMLPALLAS/laser/setOffsetLaserFocus 558                     # Laser focus offset in micrometers
+/PlasmaMLPALLAS/laser/setNormVecPotential 1.43                    # Normalized vector potential
+/PlasmaMLPALLAS/laser/setFracDopTargetChamber 0.0188              # Dopant fraction in target chamber (%)
+/PlasmaMLPALLAS/laser/setPressure 58.6                            # Chamber pressure in mbar
 
-/tracking/verbose 1
-/run/verbose 1
+###################################################################
+########## PART TO SIMULATE PARTICLE WITH GPS (no setgun) #########
+###################################################################
+/gps/number 1                                                     # Generate 1 particle
+/gps/particle geantino                                            # Set particle type
+/gps/pos/type Point                                               # Particle generated at a point
+/gps/pos/centre 10 0.0 10 mm                                      # Particle start position
+/gps/direction 0.0 1.0 0.0                                        # Particle direction along Y-axis
+/gps/energy 250. MeV                                              # Particle energy
 
-
-######################################################
-##### PART TO SIMULATE PARTICLE WITH PARTICLEGUN #####
-######################################################
-/gun/SetStatusONNX true
-/gun/SetParticleName e-
-/laser/SetOffsetLaserFocus 558 # um
-/laser/SetNormVecPotential 1.43
-/laser/SetFracDopTargetChamber 0.0188 # %(/100)
-/laser/SetPressure 58.6 #mbar
-
-
-######################################################
-### PART TO SIMULATE PARTICLE WITH GPS (no setgun) ###
-######################################################
-/gps/number 1
-# PART TO SIMULATE 1 MEV ELECTRON !!!!!!!!
-/gps/particle geantino
-
-/gps/pos/type Point
-#/gps/pos/centre -0.152 0.0 0.0 mm
-/gps/pos/centre 0.3 0.0 0.2 mm
-/gps/direction 0.0 1.0 0.0
-
-/gps/energy 250. MeV
-
-
-
-#/gps/particle ion
-#/gps/ion 2 4 1
-#/grdm/nucleusLimits 60 60 27 27
-
-
-/run/beamOn 1
+/run/beamOn 1                                                     # Start simulation for 1 particle

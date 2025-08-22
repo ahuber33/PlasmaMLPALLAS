@@ -1,0 +1,19 @@
+<map id="src/Geometry.cc" name="src/Geometry.cc">
+<area shape="rect" id="Node000001" title="Implementation of the Geometry class for the PALLAS project." alt="" coords="428,5,555,31"/>
+<area shape="rect" id="Node000002" href="$Geometry_8hh.html" title=" " alt="" coords="439,79,544,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="494,31,494,65,489,65,489,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,95,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="439,103,109,155,108,149,438,97"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="119,152,205,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="439,107,219,154,218,149,438,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="229,152,396,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="464,107,355,149,353,144,462,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="420,152,563,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="494,104,494,138,489,138,489,104"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="587,152,715,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="518,102,614,144,612,149,516,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="740,152,899,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="545,101,754,146,753,152,543,107"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="923,152,1062,177"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="544,97,910,149,909,154,544,103"/>
+</map>

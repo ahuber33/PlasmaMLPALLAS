@@ -1,72 +1,53 @@
-######################################################
-########## PART FOR MESSENGER INFORMATIONS ###########
-######################################################
-/geometry/SetQ1Length 0.1 m
-/geometry/SetQ2Length 0.1 m
-/geometry/SetQ3Length 0.2 m
-/geometry/SetQ4Length 0.1 m
-/geometry/SetSourceQ1Distance 0.173331 m
-/geometry/SetQ1Q2Distance 0.165062 m
-/geometry/SetQ2Q3Distance 0.259041 m
-/geometry/SetQ3Q4Distance 0.86536 m
-/geometry/SetSourceCollimatorDistance 3007.17 mm #3007.17 mm
+###################################################################
+################# PART FOR MESSENGER INFORMATION ##################
+###################################################################
+/PlasmaMLPALLAS/geometry/setQ1Length 0.1 m                        # Set Q1 Length
+/PlasmaMLPALLAS/geometry/setQ2Length 0.1 m                        # Set Q2 Length
+/PlasmaMLPALLAS/geometry/setQ3Length 0.2 m                        # Set Q3 Length
+/PlasmaMLPALLAS/geometry/setQ4Length 0.1 m                        # Set Q4 Length
+/PlasmaMLPALLAS/geometry/setSourceQ1Distance 0.173331 m           # Distance from source to Q1 
+/PlasmaMLPALLAS//geometry/setQ1Q2Distance 0.165062 m              # Distance between Q1 & Q2
+/PlasmaMLPALLAS//geometry/setQ2Q3Distance 0.259041 m              # Distance between Q2 & Q3
+/PlasmaMLPALLAS//geometry/setQ3Q4Distance 0.86536 m               # Distance between Q3 & Q4
+/PlasmaMLPALLAS//geometry/setSourceCollimatorsDistance 2884.5 mm  # Distance from source to collimators
 
+/PlasmaMLPALLAS/display/setStatusDisplayGeometry 0                # Display full geometry (1) or simplified (0)
+/PlasmaMLPALLAS/display/setStatusDisplayCollimators 1             # Display collimators (1) or not (0)
+/PlasmaMLPALLAS/display/setStatusDisplayQuadrupoles 1             # Display quadrupoles (1) or not (0)
 
-/display/SetStatusDisplayCelluleGeometry false
-/display/SetStatusDisplayLIFGeometry false
-/display/SetStatusDisplaySection1Geometry false
-/display/SetStatusDisplaySection2Geometry false
-/display/SetStatusDisplaySection3Geometry false
-/display/SetStatusDisplayCollimators true
-/display/SetStatusDisplaySection4Geometry true
-/display/SetStatusDisplaySection4DumpGeometry false
-/run/reinitializeGeometry
+/run/reinitializeGeometry                                         # Apply geometry changes
 
+# ------------------------- MAGNETIC FIELDS -----------------------
+/PlasmaMLPALLAS/field/setQ1Gradient -40.777059 tesla/m            # Set constant Q1 gradient field
+/PlasmaMLPALLAS/field/setQ2Gradient 29.517133 tesla/m             # Set constant Q2 gradient field
+/PlasmaMLPALLAS/field/setQ3Gradient -7.928288 tesla/m             # Set constant Q3 gradient field
+/PlasmaMLPALLAS/field/setQ4Gradient 8.503759 tesla/m              # Set constant Q4 gradient field
+/PlasmaMLPALLAS/field/setStatusMapBField 0                        # Disable B-field map for dipole spectrometer
+/PlasmaMLPALLAS/field/setConstantDipoleBField 0.65 tesla          # Set constant dipole field
 
-/field/SetStatusMapBField false
-/field/SetConstantDipoleBField 0. tesla #0.4 tesla
-/field/SetQ1Gradient 0.0 #tesla/m
-/field/SetQ2Gradient 0.0
-/field/SetQ3Gradient 0.0
-/field/SetQ4Gradient 0.0
+/PlasmaMLPALLAS/step/SetTrackingStatus true                       # Enable tracking (true) or not (false)
+/PlasmaMLPALLAS/step/SetTrackingStatusCollimators true           # Enable tracking (true) or not (false)
+                                                                  # after collision with collimators
 
+/tracking/verbose 0                                               # Enable or not detailed tracking output
+/run/verbose 1                                                    # Enable or not verbose run output
 
-/step/SetTrackingStatus true
+###################################################################
+############ PART TO SIMULATE PARTICLE WITH PARTICLEGUN ###########
+###################################################################
+/PlasmaMLPALLAS/gun/setStatusONNX 1                               # Enable ONNX-based particle gun
+/PlasmaMLPALLAS/gun/setParticleName e-                            # Set particle type 
+/PlasmaMLPALLAS/laser/setOffsetLaserFocus 558                     # Laser focus offset in micrometers
+/PlasmaMLPALLAS/laser/setNormVecPotential 1.43                    # Normalized vector potential
+/PlasmaMLPALLAS/laser/setFracDopTargetChamber 0.0188              # Dopant fraction in target chamber (%)
+/PlasmaMLPALLAS/laser/setPressure 58.6                            # Chamber pressure in mbar
 
-
-/tracking/verbose 0
-/run/verbose 1
-#/geometry/test/run
-
-
-
-
-
-######################################################
-##### PART TO SIMULATE PARTICLE WITH PARTICLEGUN #####
-######################################################
-/gun/SetStatusGunParticle true
-/gun/SetParticleName e-
-/gun/SetEnergyReference 247 MeV
-
-/gun/SetStatusONNX true
-/laser/SetOffsetLaserFocus 558 # um
-/laser/SetNormVecPotential 1.43
-/laser/SetFracDopTargetChamber 0.0188 # %(/100)
-/laser/SetPressure 58.6 #mbar
-
-
-######################################################
-### PART TO SIMULATE PARTICLE WITH GPS (no setgun) ###
-######################################################
-#/run/initialize
-#/run/printProgress 10000
-
-/gps/number 1
-/gps/particle geantino
-
-/gps/pos/type Point
-/gps/pos/centre -0.152 0.0 0.08 mm
-/gps/direction 0.0 1.0 0.0
-
-/gps/energy 250. MeV
+###################################################################
+########## PART TO SIMULATE PARTICLE WITH GPS (no setgun) #########
+###################################################################
+/gps/number 1                                                     # Generate 1 particle
+/gps/particle geantino                                            # Set particle type
+/gps/pos/type Point                                               # Particle generated at a point
+/gps/pos/centre 10 0.0 10 mm                                      # Particle start position
+/gps/direction 0.0 1.0 0.0                                        # Particle direction along Y-axis
+/gps/energy 250. MeV                                              # Particle energy

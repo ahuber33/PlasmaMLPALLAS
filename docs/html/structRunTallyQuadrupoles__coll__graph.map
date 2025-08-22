@@ -1,0 +1,7 @@
+<map id="RunTallyQuadrupoles" name="RunTallyQuadrupoles">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,269,164,295"/>
+<area shape="rect" id="Node000002" href="$structQuadrupoleState.html" title=" " alt="" coords="19,137,150,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,176,87,269,82,269,82,176"/>
+<area shape="rect" id="Node000003" href="$structVector3.html" title=" " alt="" coords="49,5,120,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,44,87,137,82,137,82,44"/>
+</map>

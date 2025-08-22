@@ -1,0 +1,31 @@
+name: Generate and Publish Doxygen Docs
+
+on:
+  push:
+    branches:
+      - main  # branche principale de ton dépôt
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Récupérer le code
+      - uses: actions/checkout@v3
+
+      # 2️⃣ Installer Doxygen et Graphviz
+      - name: Install Doxygen and Graphviz
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y doxygen graphviz
+
+      # 3️⃣ Générer la documentation
+      - name: Generate Doxygen Documentation
+        run: doxygen Doxyfile
+
+      # 4️⃣ Publier sur GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/html

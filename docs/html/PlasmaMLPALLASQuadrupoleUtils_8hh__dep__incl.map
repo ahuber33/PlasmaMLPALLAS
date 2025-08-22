@@ -1,9 +1,11 @@
 <map id="include/PlasmaMLPALLASQuadrupoleUtils.hh" name="include/PlasmaMLPALLASQuadrupoleUtils.hh">
-<area shape="rect" id="Node000001" title=" " alt="" coords="490,5,753,45"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="594,5,857,45"/>
 <area shape="rect" id="Node000002" href="$PlasmaMLPALLASEventAction_8hh.html" title=" " alt="" coords="434,93,659,133"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,58,565,95,561,91,594,54"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="675,54,587,96,585,91,673,49"/>
 <area shape="rect" id="Node000008" href="$PlasmaMLPALLASSteppingAction_8hh.html" title=" " alt="" coords="663,269,908,309"/>
-<area shape="poly" id="edge17_Node000001_Node000008" title=" " alt="" coords="646,55,673,92,733,190,777,267,773,270,729,193,668,95,642,58"/>
+<area shape="poly" id="edge17_Node000001_Node000008" title=" " alt="" coords="735,58,784,268,778,270,730,59"/>
+<area shape="rect" id="Node000012" href="$PlasmaMLPALLASQuadrupoleUtils_8cc.html" title="Utility functions for updating quadrupole vectors in simulation statistics." alt="" coords="763,93,997,133"/>
+<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="773,50,847,91,845,96,770,54"/>
 <area shape="rect" id="Node000003" href="$PlasmaMLPALLASActionInitialization_8hh.html" title=" " alt="" coords="241,357,471,397"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="430,139,326,162,217,193,125,230,91,250,69,271,61,289,69,308,90,319,132,331,246,355,245,360,131,336,88,323,65,311,56,290,64,268,88,246,122,225,216,188,325,157,429,133"/>
 <area shape="rect" id="Node000005" href="$PlasmaMLPALLASRunAction_8hh.html" title=" " alt="" coords="409,181,623,221"/>

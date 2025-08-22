@@ -108,8 +108,8 @@ BeamParameters PlasmaMLPALLASOnnxInference::GenerateBeam(G4double fXof, G4double
     params.Q     = outVals[2] * (8.376833e-10 - 6.498496e-17) + 6.498496e-17;
     params.epsb  = outVals[3] * (7.615750e-5 - 2.504754e-9) + 2.504754e-9;
 
-    G4double eps_x = params.epsb;           // Polarization direction
-    G4double eps_z = params.epsb / 2.5;     // Transverse direction
+    G4double eps_z = params.epsb;           // Polarization direction
+    G4double eps_x = params.epsb / 2.5;     // Transverse direction
 
     // Twiss parameters (assume alpha=0, beta=1)
     G4double alphax = 0, betax = 1, alphay = 0, betay = 1;

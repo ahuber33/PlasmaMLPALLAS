@@ -26,7 +26,7 @@
 /PlasmaMLPALLAS/field/setConstantDipoleBField 0.65 tesla          # Set constant dipole field
 
 /PlasmaMLPALLAS/step/SetTrackingStatus true                       # Enable tracking (true) or not (false)
-/PlasmaMLPALLAS/step/SetTrackingStatusCollimators true           # Enable tracking (true) or not (false)
+/PlasmaMLPALLAS/step/SetTrackingStatusCollimators false           # Enable tracking (true) or not (false)
                                                                   # after collision with collimators
 
 /tracking/verbose 0                                               # Enable or not detailed tracking output

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PlasmaMLPALLAS: Main Page</title>
+<title>PlasmaMLPALLAS: PlasmaMLPALLAS</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,10 +68,243 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">PlasmaMLPALLAS Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">PlasmaMLPALLAS </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="autotoc_md2"></a>
+PALLAS Simulation – Plasma Beam Generation with Geant4 &amp; ML Integration</h1>
+<p><b>Project Authors:</b> Arnaud HUBER &amp; Alexei SYTOV <br  />
+ <b>Date:</b> 2024–2025 <br  />
+ <b>Collaboration:</b> GEANT4, PALLAS Project</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md4"></a>
+Table of Contents</h2>
+<ul>
+<li>Introduction</li>
+<li>Features</li>
+<li>Dependencies</li>
+<li>Installation</li>
+<li>Building the Simulation</li>
+<li>Running the Simulation</li>
+<li>Primary Generator &amp; ONNX Integration</li>
+<li>Magnetic Field Configuration</li>
+<li>Physics List</li>
+<li>Quadrupole Utilities</li>
+<li>User Interface Commands</li>
+<li>ROOT Output</li>
+<li>Architecture Diagram</li>
+<li>Documentation</li>
+<li>License</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md6"></a>
+Introduction</h2>
+<p>The PALLAS simulation is a Geant4-based framework designed for modeling plasma-based particle beams. <br  />
+ It combines traditional Geant4 particle sources with machine learning-based ONNX inference for beam generation, and provides high-fidelity magnetic field and quadrupole tracking.</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md8"></a>
+Features</h2>
+<ul>
+<li>Primary particle generation via:<ul>
+<li>ONNX ML model</li>
+<li>Geant4 General Particle Source (GPS)</li>
+</ul>
+</li>
+<li>Custom physics list optimized for plasma and nuclear physics:<ul>
+<li>High-precision hadronic and electromagnetic physics</li>
+<li>Ion interactions and stopping physics</li>
+<li>Decay and radioactive decay</li>
+</ul>
+</li>
+<li>Magnetic field simulation:<ul>
+<li>Dipole and quadrupole contributions</li>
+<li>Fitted field maps (error function + Gaussian)</li>
+</ul>
+</li>
+<li>Quadrupole tracking utilities</li>
+<li>User interface commands for interactive parameter adjustment</li>
+<li>Multithreaded event generation with progress display</li>
+<li>Doxygen-documented codebase</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md10"></a>
+Dependencies</h2>
+<ul>
+<li>Geant4 &gt;= 11.1</li>
+<li>CLHEP (units &amp; constants)</li>
+<li>ONNX Runtime</li>
+<li>C++17 or later</li>
+<li>Standard libraries: <code>&lt;atomic&gt;</code>, <code>&lt;chrono&gt;</code>, <code>&lt;vector&gt;</code>, <code>&lt;string&gt;</code>, <code>&lt;cmath&gt;</code>, <code>&lt;memory&gt;</code></li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md12"></a>
+Installation</h2>
+<div class="fragment"><div class="line">git clone https://github.com/ahuber33/PlasmaMLPALLAS</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md14"></a>
+Building the Simulation</h2>
+<div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake -DGeant4_DIR=$G4COMP ../ -DOnnxRuntime_LIBRARY=../onnxruntime-linux-x64-1.17.1/lib/libonnxruntime.so.1.17.1</div>
+<div class="line">make -j$(nproc)</div>
+</div><!-- fragment --><p>The executable <code>PlasmaMLPALLAS</code> will be added to your <code>bin</code> folder.</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md16"></a>
+Running the Simulation</h2>
+<ul>
+<li><b>With visualization:</b></li>
+</ul>
+<div class="fragment"><div class="line">./PlasmaMLPALLAS [name_of_ROOT_file]</div>
+</div><!-- fragment --><p>It will generate particles according to the macro (e.g., <code>vis.mac</code>) and produce a ROOT file in the <code>Resultats</code> folder.</p>
+<ul>
+<li><b>Without visualization (statistics only):</b></li>
+</ul>
+<div class="fragment"><div class="line">./PlasmaMLPALLAS [name_of_ROOT_file] [number_of_events] [macro_file] [MT ON/OFF] [number_of_threads]</div>
+</div><!-- fragment --><p><b>Notes:</b></p><ul>
+<li>If MT is ON, temporary ROOT files for each thread are merged at the end.</li>
+<li>If MT is OFF, no need to specify the number of threads.</li>
+<li>You can use any macro file (e.g., <code>vrml.mac</code>).</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md18"></a>
+Primary Generator &amp; ONNX Integration</h2>
+<p><b>Class:</b> <code><a class="el" href="classPlasmaMLPALLASPrimaryGeneratorAction.html" title="Defines the primary generator action for the simulation.">PlasmaMLPALLASPrimaryGeneratorAction</a></code></p>
+<p><b>Modes:</b></p><ul>
+<li>ONNX ML-based beam generation</li>
+<li>GPS particle source</li>
+</ul>
+<p><b>Beam parameters:</b></p><ul>
+<li><code>Ekin</code> – kinetic energy</li>
+<li><code>dEkin</code> – energy spread</li>
+<li><code>Q</code> – charge</li>
+<li><code>epsb</code> – transverse emittance</li>
+<li><code>x, z</code> – transverse positions</li>
+<li><code>xp, zp</code> – angles</li>
+</ul>
+<p><b>Example UI commands:</b></p>
+<div class="fragment"><div class="line">/PlasmaMLPALLAS/gun/setStatusONNX 1</div>
+<div class="line">/PlasmaMLPALLAS/gun/setParticleName electron</div>
+<div class="line">/PlasmaMLPALLAS/laser/setOffsetLaserFocus 0.5</div>
+<div class="line">/PlasmaMLPALLAS/laser/setNormVecPotential 1.2</div>
+<div class="line">/PlasmaMLPALLAS/laser/setFracDopTargetChamber 0.0188</div>
+<div class="line">/PlasmaMLPALLAS/laser/setPressure 58.6</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md20"></a>
+Magnetic Field Configuration</h2>
+<p><b>Class:</b> <code><a class="el" href="classPlasmaMLPALLASMagneticField.html" title="Defines the magnetic field model for the PALLAS simulation.">PlasmaMLPALLASMagneticField</a></code></p>
+<p><b>Features:</b></p><ul>
+<li>Dipole field (constant or parameterized)</li>
+<li>Quadrupole contributions</li>
+<li>Field maps with symmetrized error function + Gaussian fits</li>
+</ul>
+<p><b>Quadrupole settings:</b></p>
+<div class="fragment"><div class="line">SetGradient(index, value)</div>
+<div class="line">SetQLength(index, length)</div>
+<div class="line">SetQDrift(index, drift)</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md22"></a>
+Physics List</h2>
+<p><b>Class:</b> <code><a class="el" href="classPlasmaMLPALLASPhysics.html" title="Custom physics list for the PALLAS project.">PlasmaMLPALLASPhysics</a></code> <br  />
+ Derived from <code>G4VModularPhysicsList</code></p>
+<p><b>Includes:</b></p><ul>
+<li>High-precision hadronic and elastic models</li>
+<li>Electromagnetic physics (<code>G4EmStandardPhysics_option3</code>)</li>
+<li>Stopping physics</li>
+<li>Decay and radioactive decay</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md24"></a>
+Quadrupole Utilities</h2>
+<p><b>File:</b> <code><a class="el" href="PlasmaMLPALLASQuadrupoleUtils_8cc.html" title="Utility functions for updating quadrupole vectors in simulation statistics.">PlasmaMLPALLASQuadrupoleUtils.cc</a></code> <br  />
+</p>
+<p>Update individual vector components of quadrupoles (position or momentum, start or end).</p>
+<p><b>Example:</b></p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#a7b0098778394b862b0fe684a88b30ceb">SetQuadrupoleValue</a>(stats, <a class="code hl_enumvalue" href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#a3ca25cc7032f84cd6a4b1466200da0d4a8860370af76c01de5337d4626c2678f4">QuadID::Q1</a>, <a class="code hl_enumvalue" href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#aa80fe4e9a559009407475c9587214b48a1a06729125544cab7cee73195fc044f0">PositionType::Begin</a>, <a class="code hl_enumvalue" href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#a4cb1a0efcfdc7d48663a184e37d596a2a52f5e0bc3859bc5f5e25130b6c7e8881">VectorType::Position</a>, <a class="code hl_enumvalue" href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8ea02129bb861061d1a052c592e2dc6b383">Axis::X</a>, 0.1f);</div>
+<div class="ttc" id="aPlasmaMLPALLASQuadrupoleUtils_8hh_html_a3ca25cc7032f84cd6a4b1466200da0d4a8860370af76c01de5337d4626c2678f4"><div class="ttname"><a href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#a3ca25cc7032f84cd6a4b1466200da0d4a8860370af76c01de5337d4626c2678f4">QuadID::Q1</a></div><div class="ttdeci">@ Q1</div></div>
+<div class="ttc" id="aPlasmaMLPALLASQuadrupoleUtils_8hh_html_a4cb1a0efcfdc7d48663a184e37d596a2a52f5e0bc3859bc5f5e25130b6c7e8881"><div class="ttname"><a href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#a4cb1a0efcfdc7d48663a184e37d596a2a52f5e0bc3859bc5f5e25130b6c7e8881">VectorType::Position</a></div><div class="ttdeci">@ Position</div></div>
+<div class="ttc" id="aPlasmaMLPALLASQuadrupoleUtils_8hh_html_a7b0098778394b862b0fe684a88b30ceb"><div class="ttname"><a href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#a7b0098778394b862b0fe684a88b30ceb">SetQuadrupoleValue</a></div><div class="ttdeci">void SetQuadrupoleValue(RunTallyQuadrupoles &amp;stats, QuadID qid, PositionType posType, VectorType vecType, Axis axis, float value)</div><div class="ttdoc">Sets a specific component of a quadrupole vector.</div><div class="ttdef"><b>Definition</b> PlasmaMLPALLASQuadrupoleUtils.cc:54</div></div>
+<div class="ttc" id="aPlasmaMLPALLASQuadrupoleUtils_8hh_html_aa80fe4e9a559009407475c9587214b48a1a06729125544cab7cee73195fc044f0"><div class="ttname"><a href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#aa80fe4e9a559009407475c9587214b48a1a06729125544cab7cee73195fc044f0">PositionType::Begin</a></div><div class="ttdeci">@ Begin</div></div>
+<div class="ttc" id="aPlasmaMLPALLASQuadrupoleUtils_8hh_html_ae3996976d8ffb3e58d88f58227473f8ea02129bb861061d1a052c592e2dc6b383"><div class="ttname"><a href="PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8ea02129bb861061d1a052c592e2dc6b383">Axis::X</a></div><div class="ttdeci">@ X</div></div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md26"></a>
+User Interface Commands</h2>
+<ul>
+<li><code>/PlasmaMLPALLAS/gun/...</code> – Particle generation</li>
+<li><code>/PlasmaMLPALLAS/laser/...</code> – ML laser parameters</li>
+</ul>
+<p><b>Controls:</b></p><ul>
+<li>ONNX enable/disable</li>
+<li>Particle name</li>
+<li>Laser focus offset, normalized vector potential, dopant fraction, chamber pressure</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md28"></a>
+ROOT Output</h2>
+<ul>
+<li><code>BeginOfRunAction</code> creates six trees:<ul>
+<li><code>Tree_GlobalInput</code> – Simulation and ML parameters</li>
+<li><code>Tree_Input</code> – Particle initial positions, momenta, offsets</li>
+<li><code>Tree_HorizontalColl</code> – Energy deposited in horizontal collimator</li>
+<li><code>Tree_VerticalColl</code> – Energy deposited in vertical collimator</li>
+<li><code>Tree_BSYAG</code> – Particles interacting with YAG, magnet OFF</li>
+<li><code>Tree_BSPECYAG</code> – Particles interacting with YAG, magnet ON</li>
+</ul>
+</li>
+<li>Variables are initialized in <code>BeginOfEventAction</code> and filled in <code>EndOfEventAction</code>.</li>
+<li>Particle propagation and interaction info is collected in <code><a class="el" href="PlasmaMLPALLASSteppingAction_8cc.html" title="Implements step-level tracking, data extraction, and event updates for the PALLAS simulation.">PlasmaMLPALLASSteppingAction.cc</a></code>.</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md30"></a>
+Architecture Diagram</h2>
+<div class="fragment"><div class="line">+------------------------------+</div>
+<div class="line">|        PALLAS Simulation     |</div>
+<div class="line">+------------------------------+</div>
+<div class="line">            |</div>
+<div class="line">            v</div>
+<div class="line">+------------------------------+</div>
+<div class="line">|  PrimaryGeneratorAction      |</div>
+<div class="line">|  - GPS / ONNX ML Beam        |</div>
+<div class="line">+------------------------------+</div>
+<div class="line">            |</div>
+<div class="line">            v</div>
+<div class="line">+------------------------------+</div>
+<div class="line">|       ONNXInference          |</div>
+<div class="line">|  - GenerateBeam(params)      |</div>
+<div class="line">+------------------------------+</div>
+<div class="line">            |</div>
+<div class="line">            v</div>
+<div class="line">+------------------------------+      +-------------------------+</div>
+<div class="line">|   MagneticField (Dipole +    |&lt;----&gt;| Quadrupole Utilities    |</div>
+<div class="line">|   Quadrupoles / Fitted Maps) |      | - Set/Update Vectors   |</div>
+<div class="line">+------------------------------+      +-------------------------+</div>
+<div class="line">            |</div>
+<div class="line">            v</div>
+<div class="line">+------------------------------+</div>
+<div class="line">|    Physics List (EM + Had)   |</div>
+<div class="line">|  - G4EmStandardPhysics_option3|</div>
+<div class="line">|  - G4HadronPhysicsQGSP_BIC_HP|</div>
+<div class="line">|  - Ion, Stopping, Decay      |</div>
+<div class="line">+------------------------------+</div>
+<div class="line">            |</div>
+<div class="line">            v</div>
+<div class="line">+------------------------------+</div>
+<div class="line">|   Event Generation &amp; Output  |</div>
+<div class="line">+------------------------------+</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md32"></a>
+Documentation</h2>
+<p>La documentation du projet est disponible ici : <br  />
+ <a href="https://ahuber33.github.io/PlasmaMLPALLAS/">📖 Documentation Doxygen</a></p>
+<p><b>Generate with:</b></p>
+<div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --><p><b>Access via:</b> <code>docs/html/index.html</code></p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md34"></a>
+License</h2>
+<p>PALLAS Project – GEANT4 Collaboration <br  />
+</p>
+<p>See the LICENSE file for details. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

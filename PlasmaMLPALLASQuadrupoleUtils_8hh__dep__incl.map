@@ -1,0 +1,30 @@
+<map id="include/PlasmaMLPALLASQuadrupoleUtils.hh" name="include/PlasmaMLPALLASQuadrupoleUtils.hh">
+<area shape="rect" id="Node000001" title=" " alt="" coords="490,5,753,45"/>
+<area shape="rect" id="Node000002" href="$PlasmaMLPALLASEventAction_8hh.html" title=" " alt="" coords="434,93,659,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="598,58,565,95,561,91,594,54"/>
+<area shape="rect" id="Node000008" href="$PlasmaMLPALLASSteppingAction_8hh.html" title=" " alt="" coords="663,269,908,309"/>
+<area shape="poly" id="edge17_Node000001_Node000008" title=" " alt="" coords="646,55,673,92,733,190,777,267,773,270,729,193,668,95,642,58"/>
+<area shape="rect" id="Node000003" href="$PlasmaMLPALLASActionInitialization_8hh.html" title=" " alt="" coords="241,357,471,397"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="430,139,326,162,217,193,125,230,91,250,69,271,61,289,69,308,90,319,132,331,246,355,245,360,131,336,88,323,65,311,56,290,64,268,88,246,122,225,216,188,325,157,429,133"/>
+<area shape="rect" id="Node000005" href="$PlasmaMLPALLASRunAction_8hh.html" title=" " alt="" coords="409,181,623,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="538,147,525,182,520,180,533,146"/>
+<area shape="rect" id="Node000009" href="$PlasmaMLPALLASEventAction_8cc.html" title="Implementation of the EventAction class for the PALLAS PlasmaMLP simulation." alt="" coords="843,365,1099,390"/>
+<area shape="poly" id="edge16_Node000002_Node000009" title=" " alt="" coords="673,127,746,144,823,172,860,190,895,212,927,238,955,268,969,292,975,319,975,365,970,365,970,320,964,294,951,271,924,242,892,217,857,195,821,177,745,149,672,132"/>
+<area shape="rect" id="Node000004" href="$PlasmaMLPALLASActionInitialization_8cc.html" title="Implementation of the ActionInitialization class for the PALLAS PlasmaMLP simulation." alt="" coords="255,445,457,485"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="359,411,359,445,353,445,353,411"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="440,229,409,247,383,271,371,292,364,315,358,357,353,357,359,313,366,289,379,268,406,243,437,225"/>
+<area shape="rect" id="Node000006" href="$PlasmaMLPALLASPrimaryGeneratorAction_8hh.html" title=" " alt="" coords="79,269,318,309"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="426,227,261,272,260,267,425,222"/>
+<area shape="poly" id="edge10_Node000005_Node000008" title=" " alt="" coords="589,223,727,267,726,272,587,228"/>
+<area shape="poly" id="edge14_Node000005_Node000009" title=" " alt="" coords="637,208,718,216,801,228,872,245,901,255,922,267,943,290,957,316,971,364,966,365,952,319,938,293,918,271,898,260,871,250,800,233,717,221,636,213"/>
+<area shape="rect" id="Node000011" href="$PlasmaMLPALLASRunAction_8cc.html" title="Implements run&#45;level setup, data collection, and output handling for the PALLAS simulation." alt="" coords="394,277,638,302"/>
+<area shape="poly" id="edge15_Node000005_Node000011" title=" " alt="" coords="519,235,519,276,513,276,513,235"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="246,314,323,355,320,360,244,318"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="288,263,453,219,455,224,290,268"/>
+<area shape="rect" id="Node000007" href="$PlasmaMLPALLASPrimaryGeneratorAction_8cc.html" title="Implementation of the primary generator action for the PALLAS simulation." alt="" coords="5,357,216,397"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="171,321,132,359,128,355,167,317"/>
+<area shape="poly" id="edge11_Node000008_Node000003" title=" " alt="" coords="678,315,451,360,449,355,677,309"/>
+<area shape="poly" id="edge12_Node000008_Node000009" title=" " alt="" coords="840,313,947,362,945,367,837,318"/>
+<area shape="rect" id="Node000010" href="$PlasmaMLPALLASSteppingAction_8cc.html" title="Implements step&#45;level tracking, data extraction, and event updates for the PALLAS simulation." alt="" coords="601,357,818,397"/>
+<area shape="poly" id="edge13_Node000008_Node000010" title=" " alt="" coords="761,322,728,359,724,355,757,318"/>
+</map>

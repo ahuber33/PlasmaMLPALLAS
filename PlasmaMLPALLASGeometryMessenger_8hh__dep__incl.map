@@ -1,0 +1,7 @@
+<map id="include/PlasmaMLPALLASGeometryMessenger.hh" name="include/PlasmaMLPALLASGeometryMessenger.hh">
+<area shape="rect" id="Node000001" title=" " alt="" coords="115,5,369,45"/>
+<area shape="rect" id="Node000002" href="$PlasmaMLPALLASGeometryConstruction_8cc.html" title="Implements the detector geometry and magnetic field setup for the PALLAS simulation." alt="" coords="5,93,231,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,55,147,95,144,91,202,51"/>
+<area shape="rect" id="Node000003" href="$PlasmaMLPALLASGeometryMessenger_8cc.html" title="Implementation of the GeometryMessenger class for the PALLAS PlasmaMLP simulation." alt="" coords="255,93,480,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,51,341,91,338,95,280,56"/>
+</map>

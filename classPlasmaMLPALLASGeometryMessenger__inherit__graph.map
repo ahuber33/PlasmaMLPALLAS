@@ -1,0 +1,5 @@
+<map id="PlasmaMLPALLASGeometryMessenger" name="PlasmaMLPALLASGeometryMessenger">
+<area shape="rect" id="Node000001" title="UI messenger for the Geometry constrcution in PALLAS simulation." alt="" coords="5,79,279,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="79,5,205,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,44,145,79,139,79,139,44"/>
+</map>

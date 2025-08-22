@@ -1,0 +1,15 @@
+<map id="src/PlasmaMLPALLASMagneticField.cc" name="src/PlasmaMLPALLASMagneticField.cc">
+<area shape="rect" id="Node000001" title="Implementation of the PlasmaMLPALLASMagneticField class and related fit functions." alt="" coords="284,5,504,45"/>
+<area shape="rect" id="Node000002" href="$PlasmaMLPALLASMagneticField_8hh.html" title=" " alt="" coords="85,93,333,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="351,48,249,90,247,85,349,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="357,93,431,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="397,46,397,79,391,79,391,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="455,93,514,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="418,44,463,82,459,86,414,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,156,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="189,121,115,162,113,157,187,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="181,167,237,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="211,119,211,153,206,153,206,119"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="261,167,477,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="235,116,331,159,329,163,233,121"/>
+</map>

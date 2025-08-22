@@ -3,7 +3,7 @@ name: Generate and Publish Doxygen Docs
 on:
   push:
     branches:
-      - main  # branche principale de ton dépôt
+      - master  # branche principale de ton dépôt
 
 jobs:
   build-docs:

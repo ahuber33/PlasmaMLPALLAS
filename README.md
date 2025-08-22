@@ -1,4 +1,4 @@
-/*! \mainpage PlasmaMLPALLAS
+\mainpage PlasmaMLPALLAS
 # PALLAS Simulation – Plasma Beam Generation with Geant4 & ML Integration
 
 **Project Authors:** Arnaud HUBER & Alexei SYTOV  

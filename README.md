@@ -250,7 +250,9 @@ SetQuadrupoleValue(stats, QuadID::Q1, PositionType::Begin, VectorType::Position,
 
 ## Documentation
 
-Full Doxygen documentation available.
+La documentation du projet est disponible ici :  
+[📖 Documentation Doxygen](https://ahuber33.github.io/PlasmaMLPALLAS/)
+
 
 **Generate with:**
 

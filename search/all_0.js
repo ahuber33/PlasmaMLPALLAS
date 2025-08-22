@@ -11,5 +11,6 @@ var searchData=
   ['addxexit_8',['AddXExit',['../structRunTallyYAG.html#afee4fa138ccd0da32c791e7405459743',1,'RunTallyYAG']]],
   ['addyexit_9',['AddYExit',['../structRunTallyYAG.html#a3637adce0c980126794293211f191f44',1,'RunTallyYAG']]],
   ['addzexit_10',['AddZExit',['../structRunTallyYAG.html#ad217d9ba4ae81ff73ac413dd0fa26134',1,'RunTallyYAG']]],
-  ['axis_11',['Axis',['../PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8e',1,'PlasmaMLPALLASQuadrupoleUtils.hh']]]
+  ['architecture_20diagram_11',['Architecture Diagram',['../index.html#autotoc_md30',1,'']]],
+  ['axis_12',['Axis',['../PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8e',1,'PlasmaMLPALLASQuadrupoleUtils.hh']]]
 ];

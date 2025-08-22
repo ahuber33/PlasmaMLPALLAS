@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['z_0',['z',['../structRunTallyInput.html#ab263f9f27a052f3d06bbf893d6fbbfa3',1,'RunTallyInput::z'],['../structRunTallyCollimators.html#aacd4c9001700539cc9cc04cab38fe7ba',1,'RunTallyCollimators::z'],['../structBeamParameters.html#a36e1923735724069f7c7a6168fa2e300',1,'BeamParameters::z'],['../structVector3.html#aa8c9461eb24bd2c364258078811a3e9d',1,'Vector3::z'],['../PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8ea21c2e59531c8710156d34a3c30ac81d5',1,'Z:&#160;PlasmaMLPALLASQuadrupoleUtils.hh']]],
-  ['z_5fexit_1',['z_exit',['../structRunTallyYAG.html#a050080dcc037cf628f016f522c6e23fb',1,'RunTallyYAG']]],
-  ['zexitsize_2',['ZExitSize',['../structRunTallyYAG.html#a9fb0f53095c9e9955518e2f55bf94e57',1,'RunTallyYAG']]],
-  ['zp_3',['zp',['../structRunTallyInput.html#a704a4b9ca024858fb8684152c523720c',1,'RunTallyInput::zp'],['../structBeamParameters.html#a79d7d219f4c0f7f8516a6eb43ed9f682',1,'BeamParameters::zp']]]
+  ['x_0',['x',['../structRunTallyInput.html#a6fd6bd7cfa7a53b8ed3d252edcb590a8',1,'RunTallyInput::x'],['../structRunTallyCollimators.html#a7912b7ab2f13bb0a082c8fc3bd36e917',1,'RunTallyCollimators::x'],['../structBeamParameters.html#a165dad98e69f092ef843cdd4e86055ce',1,'BeamParameters::x'],['../structVector3.html#a7e2d3237b29a2f29d7b3d8b2934e35f2',1,'Vector3::x'],['../PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8ea02129bb861061d1a052c592e2dc6b383',1,'X:&#160;PlasmaMLPALLASQuadrupoleUtils.hh']]],
+  ['x_5fexit_1',['x_exit',['../structRunTallyYAG.html#a7a81d0cd91e651279499b1cf3186c013',1,'RunTallyYAG']]],
+  ['xexitsize_2',['XExitSize',['../structRunTallyYAG.html#a61acee0e966e8cd94b24381edbf7d456',1,'RunTallyYAG']]],
+  ['xoff_3',['Xoff',['../structRunTallyGlobalInput.html#a092c19e2ef93b6e536241193197b7b56',1,'RunTallyGlobalInput']]],
+  ['xp_4',['xp',['../structRunTallyInput.html#a80d733be05dcdb247bce66a01bb55051',1,'RunTallyInput::xp'],['../structBeamParameters.html#a709853837d41b09c70d29ced248da0fa',1,'BeamParameters::xp']]]
 ];

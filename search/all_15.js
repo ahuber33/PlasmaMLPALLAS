@@ -1,14 +1,7 @@
 var searchData=
 [
-  ['_7egeometry_0',['~Geometry',['../classGeometry.html#ad55e832122ab3a2833dcaa6507867678',1,'Geometry']]],
-  ['_7eplasmamlpallasactioninitialization_1',['~PlasmaMLPALLASActionInitialization',['../classPlasmaMLPALLASActionInitialization.html#a16aeafb13f6acae68aa17cfabcf6b26b',1,'PlasmaMLPALLASActionInitialization']]],
-  ['_7eplasmamlpallaseventaction_2',['~PlasmaMLPALLASEventAction',['../classPlasmaMLPALLASEventAction.html#ada7a991e515774d195e4643377771f3a',1,'PlasmaMLPALLASEventAction']]],
-  ['_7eplasmamlpallasgeometryconstruction_3',['~PlasmaMLPALLASGeometryConstruction',['../classPlasmaMLPALLASGeometryConstruction.html#a380ef089d4920b48efacdb05c86c45ab',1,'PlasmaMLPALLASGeometryConstruction']]],
-  ['_7eplasmamlpallasgeometrymessenger_4',['~PlasmaMLPALLASGeometryMessenger',['../classPlasmaMLPALLASGeometryMessenger.html#a4dab79ab0bfbedaad060c98c6eb9b599',1,'PlasmaMLPALLASGeometryMessenger']]],
-  ['_7eplasmamlpallasmagneticfield_5',['~PlasmaMLPALLASMagneticField',['../classPlasmaMLPALLASMagneticField.html#ace64aceb92582278bd9e03dd263629c9',1,'PlasmaMLPALLASMagneticField']]],
-  ['_7eplasmamlpallasphysics_6',['~PlasmaMLPALLASPhysics',['../classPlasmaMLPALLASPhysics.html#a266112ef264ea04477d2507d107a69b5',1,'PlasmaMLPALLASPhysics']]],
-  ['_7eplasmamlpallasprimarygeneratoraction_7',['~PlasmaMLPALLASPrimaryGeneratorAction',['../classPlasmaMLPALLASPrimaryGeneratorAction.html#adb50ef96fac923803f309bdc83834c08',1,'PlasmaMLPALLASPrimaryGeneratorAction']]],
-  ['_7eplasmamlpallasprimarygeneratormessenger_8',['~PlasmaMLPALLASPrimaryGeneratorMessenger',['../classPlasmaMLPALLASPrimaryGeneratorMessenger.html#a28d6dc774eadd50a726d7556646c318e',1,'PlasmaMLPALLASPrimaryGeneratorMessenger']]],
-  ['_7eplasmamlpallasrunaction_9',['~PlasmaMLPALLASRunAction',['../classPlasmaMLPALLASRunAction.html#aacf03805eceb8f8198bc5ab06bec0cc2',1,'PlasmaMLPALLASRunAction']]],
-  ['_7eplasmamlpallassteppingaction_10',['~PlasmaMLPALLASSteppingAction',['../classPlasmaMLPALLASSteppingAction.html#acb5f6bf7d5901eed90fd8dd76ffbea0d',1,'PlasmaMLPALLASSteppingAction']]]
+  ['y_0',['y',['../structRunTallyInput.html#addf7a8074652e865529082ecbf5b6613',1,'RunTallyInput::y'],['../structRunTallyCollimators.html#ad1498c7a4f3acdf72e1006068cb31341',1,'RunTallyCollimators::y'],['../structVector3.html#a86eb35a9fa2d5a49e7fad66a35fa9c13',1,'Vector3::y'],['../PlasmaMLPALLASQuadrupoleUtils_8hh.html#ae3996976d8ffb3e58d88f58227473f8ea57cec4137b614c87cb4e24a3d003a3e0',1,'Y:&#160;PlasmaMLPALLASQuadrupoleUtils.hh']]],
+  ['y_5fexit_1',['y_exit',['../structRunTallyYAG.html#af1115cd14a5d6dcc8e255d91c27621ab',1,'RunTallyYAG']]],
+  ['yexitsize_2',['YExitSize',['../structRunTallyYAG.html#a71a74a1f7b41f392fc17be323a1a29ff',1,'RunTallyYAG']]],
+  ['yp_3',['yp',['../structRunTallyInput.html#a83db087c945532587efdd6331b97b3d3',1,'RunTallyInput']]]
 ];
